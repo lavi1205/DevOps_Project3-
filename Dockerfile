@@ -1,7 +1,7 @@
 FROM maven as build 
 WORKDIR /app
 COPY . .
-RUN install
+RUN mvn install
 
 FROM openjdk:11.0
 WORKDIR /app
