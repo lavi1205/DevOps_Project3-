@@ -1,4 +1,6 @@
 FROM maven as build 
+RUN mvn clean compil
+RUN mvn clean install -X
 WORKDIR /app
 COPY . .
 RUN mvn install
