@@ -3,11 +3,11 @@ FROM maven as build
 
 WORKDIR /app
 COPY . .
-RUN mvn clean install -X
-#RUN mvn install
+#RUN mvn clean install -X
+RUN mvn install
 
 FROM openjdk:11.0
 WORKDIR /app
-COPY --from=build /app/devops-integration.jar /app/
+COPY --from=build /app/target/devops-integration.jar /app/
 EXPOSE 8080
 CMD [ "java","-jar","devops-intergration.jar" ]
