@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class Project3Controller {
     @RequestMapping(value = "/")
     public String index(){
-        return "test";
+        return "test1";
     }
     
 }
