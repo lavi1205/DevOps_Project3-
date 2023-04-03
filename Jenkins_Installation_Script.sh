@@ -6,3 +6,6 @@ echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
 apt-get update
 apt-get install fontconfig openjdk-11-jre -y
 apt-get install jenkins -y
+systemctl enable jenkins
+systemctl start jenkins
+systemctl status jenkins
