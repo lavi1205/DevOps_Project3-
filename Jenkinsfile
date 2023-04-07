@@ -22,7 +22,7 @@ pipeline{
             }
         }
 
-        stage('Sonarqube Quality Check'){
+        stage('Quality Gate Status'){
             steps{
                 
                 script{
