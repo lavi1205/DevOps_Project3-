@@ -64,14 +64,14 @@ pipeline{
             steps{
                 script{
                     withCredentials([string(credentialsId: 'Nexus_pass', variable: 'Nexus_Cred')]){
-                    dir('kubernetes/'){
-                        sh'''
-                        helmversion = $(helm show chart myapp | grep version |cut -d: -f 2 | tr -d ' ')
-                        tar -czvf myapp-${helmversion}.tgz myapp/
-                         curl -u admin:$Nexus_Cred http://18.142.119.167:8081/repository/helm-repo/ --upload-file myapp-${helmversion}.tgz -v
-                        '''
+                        dir('kubernetes/'){
+                            sh'''
+                            helmversion = $(helm show chart myapp | grep version |cut -d: -f 2 | tr -d ' ')
+                            tar -czvf myapp-${helmversion}.tgz myapp/
+                            curl -u admin:$Nexus_Cred http://18.142.119.167:8081/repository/helm-repo/ --upload-file myapp-${helmversion}.tgz -v
+                            '''
                     }
-                    }
+                  }
 
                 }
             }
